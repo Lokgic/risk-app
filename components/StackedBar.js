@@ -41,7 +41,6 @@ class StackedBar extends Component{
         this.setState({slices:this.processStack()});
     }
     componentDidUpdate(prevProps,prevState){
-        console.log(this.props)
         if (prevProps.data !== this.props.data){
             this.setState({data:this.props.data});
         }
@@ -58,7 +57,7 @@ class StackedBar extends Component{
         const color = colorGen([-1,keys.length]);
         return (<StackContainer data={slices} landscape={this.props.landscape}>
             {
-                slices.map((d,i)=><Slice key={`slice_key_${d}`}color={color(i)}/>)
+                slices.map((d,i)=><Slice key={`slice_key_${keys[i]}`}color={color(i)}/>)
             }
         </StackContainer>)
     }
